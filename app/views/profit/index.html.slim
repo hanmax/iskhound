@@ -1,0 +1,17 @@
+h1 Potential profits
+
+table.generic#profits
+  thead
+    tr
+      th.long Item
+      th From (Sell Order)
+      th To (Buy Order)
+      th Profit
+      th Actions
+  tfoot
+    tr
+      td colspan="5"
+  tbody
+    - @margin_trades.each do |trade|
+      - cargo_amount = trade.cargo_amount(@cargo)
+      = render partial: 'margin_row', locals: { trade: trade, cargo_amount: cargo_amount, min_profit: @min_profit, taxes: @taxes, isk: @isk }

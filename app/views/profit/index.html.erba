@@ -1,0 +1,24 @@
+<% @potential_trades.each do |trade| %>
+    <% cargo_amount = trade.cargo_amount(@cargo) %>
+    <% profit = (((trade.purchase_price - trade.sale_price)*cargo_amount*@taxes)/1000000).round(2) %>
+        <% if profit > 7 %>
+            <fieldset>
+              <b><%= trade.purchase.item.name %></b>
+
+              <p>
+                <i>FROM: <%= "#{trade.sale.region.name} - #{trade.sale.solar_system.name} - #{trade.sale.station_id}" %></i><br/>
+                <%= "SALE price: #{(trade.sale_price/1000000).round(2)} mil ISK" %> - <%= "amount: #{trade.sale_amount} (#{trade.sale_amount_on_station})" %> - <%= "volume: #{trade.sale_amount*trade.item_volume}" %><br>
+                <br>
+                <i>TO: <%= "#{trade.purchase.region.name} - #{trade.purchase.solar_system.name} - #{trade.purchase.station_id}" %></i><br>
+                <%= "BUY price: #{(trade.purchase_price/1000000).round(2)} mil ISK" %> - <%= "amount: #{trade.purchase_amount} (#{trade.purchase_amount_on_station})" %></u><br>
+                <br>
+                <b style="color: red">
+                  Profit: <%= profit %> mil ISK
+                  for <%= cargo_amount %> items hauled (<%= cargo_amount*trade.item_volume %>)
+                </b>
+              </p>
+            </fieldset>
+            <br>
+        <% end %>
+
+<% end %>

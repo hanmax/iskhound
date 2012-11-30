@@ -1,0 +1,43 @@
+- profit, items_count = trade.profit(cargo_amount, taxes, isk)
+- if profit  >= @min_profit
+  - no_profits = false
+  tr data-profit="#{profit}"
+    td
+      span.nl
+        strong= trade.item.name
+        span= " (#{trade.item.volume}m3)"
+      span.nl
+        = "#{items_count} items (#{items_count*trade.item_volume}m3)"
+      span.nl
+        = "#{number_to_currency items_count*trade.sale_price, format: '%n'} ISK"
+    td.center
+      span.nl.systemsec
+        = full_system_name(trade.sale)
+        span class="#{system_security_class(trade.sale)}"
+          = "(#{trade.sale.solar_system.security.round(2)})"
+        span.nl
+          = " #{time_ago_in_words trade.sale.created} ago"
+      span.nl= "#{number_to_currency (trade.sale_price).round(2), format: '%n'} ISK / #{trade.sale_amount} (#{trade.sale_amount_on_station}) / (#{trade.sale_amount*trade.item_volume*100.round(2)/100}m3)"
+    td.center
+      span.nl.systemsec
+        = full_system_name(trade.purchase)
+        span class="#{system_security_class(trade.purchase)}"
+          = "(#{trade.purchase.solar_system.security.round(2)})"
+        span.nl
+          = " #{time_ago_in_words trade.purchase.created} ago"
+      span.nl
+        = "#{number_to_currency (trade.purchase_price).round(2), format: '%n'} ISK / #{trade.purchase_amount} (#{trade.purchase_amount_on_station}) / (#{trade.purchase_amount*trade.item_volume*100.round(2)/100}m3)"
+    td.center
+      span.nl
+        = "Per item: #{number_to_currency (trade.purchase_price-trade.sale_price), format: '%n'} ISK"
+      span.nl
+        - fee = (items_count*trade.purchase_price)*(1-taxes)
+        = "Broker fee: #{number_to_currency fee, format: '%n'} ISK"
+      span.nl
+        big
+        strong.red= "Total ~ #{number_to_currency profit.round(2), format: '%n'} ISK"
+    td.actions
+      span Obsolete:
+      = link_to "Sale", { controller: 'profit', action: 'obsolete_sale', id: trade.sale.id }
+      = link_to "Buy", { controller: 'profit', action: 'obsolete_buy', id: trade.purchase.id }
+      = link_to "Margin", { controller: 'profit', action: 'obsolete', id: trade.id }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails iskhound: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="01393a0b-db0a-4833-a292-ec4cee6246bd">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://127.0.0.1:3306/dev_iskhound</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>dfdbdfdddfcfdf9bdf98df99</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-java-5.1.18-bin.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

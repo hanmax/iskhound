@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nl {
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+table.generic {
+    font-size: 0.8em;
+    background: #eeeeee;
+}
+
+table.generic thead {
+    background: black;
+    color: white;
+}
+
+table.generic th, table.generic td {
+    padding: 5px 5px;
+    vertical-align: top;
+    width: 250px;
+
+}
+
+table.generic th.long {
+    width: 400px;
+}
+
+table.generic tbody tr td {
+    border-bottom: 1px solid black;
+}
+
+table.generic td.actions {
+    text-align: center;
+}
+
+table.generic .actions a {
+    margin: 2px 10px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #00008b;
+    text-decoration: none;
+    border-bottom: 1px solid #00008b;
+}
+
+/* --- */
+
+.red {
+    color: maroon;
+}
+
+.systemsec {
+    font-weight: bold;
+}
+
+.red_sec {
+    margin-left: 5px;
+    color: red;
+}
+.orange_sec {
+    margin-left: 5px;
+    color: #cd853f;
+}
+.yellow_sec {
+    margin-left: 5px;
+    color: #b8860b;
+}
+.green_sec {
+    margin-left: 5px;
+    color: #556b2f;
+}
+.blue_sec {
+    margin-left: 5px;
+    color: #6a5acd;
+}
