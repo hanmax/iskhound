@@ -27,7 +27,7 @@ namespace :import do
   task :emdr do
     context = ZMQ::Context.new
     subscriber = context.socket(ZMQ::SUB)
-    subscriber.connect("tcp://relay-eu-germany-1.eve-emdr.com:8050")
+    subscriber.connect("tcp://relay-us-east-1.eve-emdr.com:8050")
     subscriber.setsockopt(ZMQ::SUBSCRIBE,"")
 
     loop do
