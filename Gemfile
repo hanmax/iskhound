@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
-gem 'mysql'
+gem 'mysql2'
 gem 'devise'
 gem 'json'
 gem 'ffi-rzmq'
