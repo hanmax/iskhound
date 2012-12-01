@@ -102,6 +102,7 @@ namespace :import do
     client = HTTPClient.new
 
     loop do
+      sleep(30)
       updated_item_ids = []
       content = client.get_content("http://api.eve-marketdata.com/api/recent_uploads2.txt?char_name=iskhound&upload_type=o&minutes=1")
       updates = content.split("\n")

@@ -16,6 +16,7 @@ namespace :worker do
   task :margin do
     items = Item.caches(:with_real_volume).flatten
     loop do
+      sleep(30)
       sales = Sale.caches(:margin_sorted)
       purchases = Purchase.caches(:margin_sorted)
       endcount = sales.to_a.count
